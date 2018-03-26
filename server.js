@@ -27,8 +27,18 @@ app.get("/:dateVal", (request, response) => {
   date:"numeric"
   };
   
-  if(isNaN())
-   response.json({unix: dateVal});
+  if(isNaN(dateVal)){
+  var naturalDate = new Date(dateVal);
+  naturalDate = naturalDate.toLocaleDateString("en-us",dateFormattingOption);
+  var unixDate = new Date(dateVal).getTime()/1000;
+  }
+  else
+  {
+    var unixDate = dateVal;
+    var naturalDate = new Date(dateVal * 1000);
+    naturalDate = naturalDate.toLocaleDateString("en-us",dateFormattingOption);
+  }
+   response.json({unix: unixDate,natural: naturalDate});
 });
 
 
