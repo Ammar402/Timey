@@ -24,7 +24,7 @@ app.get("/:dateVal", (request, response) => {
   var dateFormattingOption = {
   year:"numeric",
   month:"long",
-  date:"numeric"
+  day:"numeric"
   };
   
   if(isNaN(dateVal)){
