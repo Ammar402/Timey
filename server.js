@@ -21,6 +21,11 @@ app.get("/:dateVal", (request, response) => {
   
   var dateVal = request.params.dateVal;
   
+  var dateFormattingOption = {
+  year :"numeric",
+  month :"long",
+  day :"numeric"
+  }
    response.json({unix: dateVal});
 });
 
